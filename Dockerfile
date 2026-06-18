@@ -2,7 +2,7 @@ FROM node:notfound
 ENV NODE_ENV=development
 WORKDIR /wrong
 COPY package*.json ./
-RUN npm install
+RUN npm install package-lock.json
 COPY . .
 EXPOSE 8080
-CMD ["npm", "start"]
+CMD ["npm", "run", "production"]
