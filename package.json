@@ -1,0 +1,15 @@
+{
+  "name": "dockerfile-repair-lab",
+  "version": "1.0.0",
+  "description": "A hands-on DevOps lab to practice debugging and repairing broken Dockerfiles.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
