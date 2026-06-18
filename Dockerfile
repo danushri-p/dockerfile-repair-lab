@@ -1,6 +1,6 @@
-FROM node:18
+FROM node:notfound
 ENV NODE_ENV=development
-WORKDIR /app
+WORKDIR /wrong
 COPY package*.json ./
 RUN npm install
 COPY . .
