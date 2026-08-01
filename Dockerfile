@@ -1,16 +1,20 @@
-FROM node:notfound
+# Use a valid lightweight Node.js base image
+FROM node:18-alpine
 
-# Copy files first, then change directory
+# Set the working directory
+WORKDIR /app
+
+# Copy dependency files first for better layer caching
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy the rest of the application source
 COPY . .
-WORKDIR /wrong
 
-# Broken dependency installation
-RUN npm install package-lock.json
-
-# Copying a folder that doesn't exist in the project
-COPY missing-folder ./missing-folder
-
+# Expose the application port
 EXPOSE 8080
 
-# Incorrect startup command
-CMD ["npm", "run", "production"]
+# Start the application
+CMD ["npm", "start"]
