@@ -1,3 +1,10 @@
+FROM node:20-slim
+
+WORKDIR /app
+
+COPY package*.json ./
+RUN npm install --omit=dev
+
 # Use a valid lightweight Node.js base image
 FROM node:18-alpine
 
@@ -16,5 +23,6 @@ COPY . .
 # Expose the application port
 EXPOSE 8080
 
+CMD ["npm", "start"]
 # Start the application
 CMD ["npm", "start"]
